@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journey Embarkment - Reserve Journeys</title>
+  <style>
+    :root {
+      --bg: #e8e2d8;
+      --surface: #f4efe6;
+      --surface-alt: #f7f1e7;
+      --surface-dark: #1e3020;
+      --text: #1e3020;
+      --muted: #8a7a6a;
+      --accent: #6e1e2e;
+      --accent-soft: #c45a70;
+      --shadow: rgba(30, 48, 32, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--surface-dark);
+      color: #f4efe6;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--surface-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .brand-mark svg { width: 28px; height: 28px; }
+
+    .brand-title h1 {
+      font-size: 1.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-title p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    .header-nav a {
+      color: #f4efe6;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover { color: var(--accent-soft); }
+
+    .hero {
+      background: linear-gradient(135deg, var(--surface-dark), var(--accent));
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .hero h1 { font-size: 2.8rem; margin-bottom: 16px; letter-spacing: 0.04em; }
+    .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.86); max-width: 580px; margin: 0 auto; line-height: 1.6; }
+
+    .content {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--surface-dark);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 12px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #5c5a52;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin: 30px 0;
+    }
+
+    .highlight-card {
+      background: var(--surface);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px var(--shadow);
+    }
+
+    .highlight-card h3 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      color: #5c5a52;
+      line-height: 1.6;
+    }
+
+    .cta-section {
+      background: var(--surface);
+      padding: 50px 40px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 18px 40px var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    .cta-section h2 {
+      font-size: 1.8rem;
+      color: var(--surface-dark);
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      font-size: 1rem;
+      color: #5c5a52;
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 14px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover { background: var(--accent-soft); }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      animation: fadeIn 0.2s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background-color: var(--surface);
+      margin: 5% auto;
+      padding: 40px;
+      border-radius: 18px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: slideIn 0.3s;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: #000; }
+
+    .modal h2 {
+      color: var(--surface-dark);
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--surface-dark);
+      font-size: 0.9rem;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(110, 30, 46, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-weight: 600;
+    }
+
+    .form-submit:hover { background: var(--accent-soft); }
+    .form-submit:disabled { background: #aaa; cursor: not-allowed; }
+
+    footer {
+      background: var(--surface-dark);
+      color: #cfc5b0;
+      text-align: center;
+      padding: 28px 20px;
+      margin-top: 40px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="54" cy="54" r="50" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/>
+        <path d="M 10 82 Q 34 76 54 78" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <path d="M 72 18 L 86 24 L 72 31" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="brand-title">
+      <h1>Reserve Journeys</h1>
+      <p>Curated travel experiences</p>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <a href="index.html">← Back to All Tiers</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Journey Embarkment</h1>
+  <p>Full-service travel execution with comprehensive support, premium accommodations, and dedicated coordination from start to finish.</p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <h2 class="section-title">What You Get</h2>
+    <p>Our Journey Embarkment tier provides complete travel management and execution. We handle all logistics, booking, and coordination so you can focus on experiencing your adventure.</p>
+    
+    <div class="highlights">
+      <div class="highlight-card">
+        <h3>Complete Trip Coordination</h3>
+        <p>We manage all aspects of your trip, from flights and accommodations to activities and dining reservations.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>24/7 Travel Support</h3>
+        <p>Round-the-clock assistance and support before, during, and after your journey for complete peace of mind.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Premium Accommodations</h3>
+        <p>Access to handpicked luxury accommodations and exclusive properties curated specifically for you.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Concierge Services</h3>
+        <p>Personal concierge support for special requests, last-minute changes, and unique experiences.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Perfect For</h2>
+    <p>This tier is ideal for travelers who:</p>
+    <ul style="list-style-position: inside; color: #5c5a52; line-height: 1.8;">
+      <li>Want complete peace of mind with full trip management</li>
+      <li>Prefer premium accommodations and elevated experiences</li>
+      <li>Desire 24/7 support and concierge-level service</li>
+      <li>Want everything handled professionally from planning to execution</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">The Process</h2>
+    <p>Our comprehensive execution process ensures flawless travel:</p>
+    <ol style="list-style-position: inside; color: #5c5a52; line-height: 1.8;">
+      <li><strong>Discovery & Planning</strong> - Detailed consultation on all travel preferences and requirements</li>
+      <li><strong>Trip Design</strong> - Create comprehensive itinerary with premium selections</li>
+      <li><strong>Booking & Arrangements</strong> - We handle all reservations and logistics</li>
+      <li><strong>Pre-Travel Preparation</strong> - Send you detailed travel documents and information</li>
+      <li><strong>Live Support</strong> - 24/7 availability during your journey</li>
+      <li><strong>Post-Travel Follow-up</strong> - Gather feedback and maintain relationship for future journeys</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">What's Included</h2>
+    <p>Your Journey Embarkment package includes:</p>
+    <ul style="list-style-position: inside; color: #5c5a52; line-height: 1.8;">
+      <li>✓ Complete itinerary planning and design</li>
+      <li>✓ All flight and transportation arrangements</li>
+      <li>✓ Premium accommodation selection and booking</li>
+      <li>✓ Activity curation and reservation</li>
+      <li>✓ Dining recommendations and reservations</li>
+      <li>✓ Travel insurance coordination</li>
+      <li>✓ 24/7 emergency support during travel</li>
+      <li>✓ Detailed travel documents and guides</li>
+      <li>✓ Concierge services for special requests</li>
+    </ul>
+  </div>
+
+  <div class="cta-section">
+    <h2>Experience Full-Service Travel</h2>
+    <p>Let us manage every detail of your journey. Submit an inquiry to discuss your travel vision.</p>
+    <button class="cta-btn" onclick="openModal()">Submit Inquiry</button>
+  </div>
+
+</div>
+
+<!-- Inquiry Modal -->
+<div id="inquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Begin Your Embarkment</h2>
+    <form id="inquiryForm" onsubmit="submitInquiry(event)">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="name" required placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="email" required placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" required placeholder="(555) 123-4567">
+      </div>
+      <div class="form-group">
+        <label>What are you looking for?</label>
+        <textarea id="interests" required placeholder="Tell us about your dream destination, travel dates, party size, and any special requests..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Inquiry</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Reserve Journeys. All rights reserved.</p>
+</footer>
+
+<script>
+  const modal = document.getElementById('inquiryModal');
+
+  function openModal() {
+    modal.style.display = 'block';
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  function submitInquiry(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const interests = document.getElementById('interests').value;
+
+    const inquiry = {
+      tier: 'Journey Embarkment',
+      name: name,
+      email: email,
+      phone: phone,
+      interests: interests,
+      submittedAt: new Date().toISOString()
+    };
+
+    console.log('Inquiry submitted:', inquiry);
+    alert(`Thank you, ${name}! We'll contact you at ${email} within 24 hours.`);
+    document.getElementById('inquiryForm').reset();
+    closeModal();
+  }
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reserve Journeys</title>
+  <title>Reserve Journeys - Curated Travel Experiences</title>
   <style>
     :root {
       --bg: #e8e2d8;
@@ -69,100 +69,131 @@
       background: linear-gradient(135deg, var(--surface-dark), var(--accent));
       color: white;
       text-align: center;
-      padding: 95px 24px;
+      padding: 120px 24px;
     }
 
-    .hero h2 { font-size: 3rem; margin-bottom: 18px; letter-spacing: 0.04em; }
-    .hero p { font-size: 1.2rem; color: rgba(255,255,255,0.86); max-width: 560px; margin: 0 auto; line-height: 1.6; }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 18px; letter-spacing: 0.04em; }
+    .hero p { font-size: 1.3rem; color: rgba(255,255,255,0.86); max-width: 620px; margin: 0 auto; line-height: 1.6; }
 
-    .trips-section {
-      max-width: 1120px;
-      margin: 40px auto 60px;
+    .tiers-section {
+      max-width: 1200px;
+      margin: 60px auto;
       padding: 0 20px;
     }
 
-    .trips-section h3 {
-      font-size: 1.7rem;
-      margin-bottom: 28px;
+    .tiers-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .tiers-intro h2 {
+      font-size: 2.4rem;
       color: var(--surface-dark);
+      margin-bottom: 16px;
     }
 
-    .trips-grid {
+    .tiers-intro p {
+      font-size: 1.1rem;
+      color: #5c5a52;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .tiers-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
     }
 
-    .trip-card {
+    .tier-card {
       background: var(--surface);
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 18px 60px var(--shadow);
-      cursor: pointer;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .trip-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 64px rgba(30,48,32,0.18);
-    }
-
-    .trip-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .trip-card-body { padding: 24px; }
-
-    .trip-card-body h4 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: var(--surface-dark);
-    }
-
-    .trip-meta {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 14px 0;
-      font-size: 0.95rem;
-      color: var(--muted);
+      flex-direction: column;
     }
 
-    .trip-card-body p {
+    .tier-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 70px rgba(30,48,32,0.18);
+    }
+
+    .tier-header {
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .tier-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .tier-level {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .tier-body {
+      padding: 28px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tier-description {
       font-size: 0.95rem;
-      color: #5a5a50;
+      color: #5c5a52;
       line-height: 1.7;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .btn {
+    .tier-highlights {
+      list-style: none;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .tier-highlights li {
+      font-size: 0.9rem;
+      color: #5c5a52;
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .tier-highlights li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-soft);
+      font-weight: bold;
+    }
+
+    .tier-cta {
       display: inline-block;
+      width: 100%;
       background: var(--accent);
       color: white;
-      padding: 12px 26px;
-      border-radius: 999px;
+      padding: 14px 24px;
+      border-radius: 10px;
       text-decoration: none;
+      text-align: center;
       font-size: 0.95rem;
       transition: background 0.2s ease;
+      border: none;
+      cursor: pointer;
     }
 
-    .btn:hover { background: var(--accent-soft); }
-
-    .price {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--accent-soft);
-      margin-bottom: 10px;
-    }
-
-    .loading {
-      text-align: center;
-      padding: 60px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+    .tier-cta:hover { background: var(--accent-soft); }
 
     footer {
       background: var(--surface-dark);
@@ -193,57 +224,94 @@
 </header>
 
 <div class="hero">
-  <h2>Travel with a thoughtful, elevated experience.</h2>
-  <p>Discover handcrafted journeys designed with premium service, refined style, and unforgettable destinations.</p>
+  <h1>Welcome to Elevated Travel</h1>
+  <p>Discover our curated engagement tiers, each designed to match your travel aspirations and desired level of involvement.</p>
 </div>
 
-<div class="trips-section">
-  <h3>Available Trips</h3>
-  <div class="trips-grid" id="tripsGrid">
-    <div class="loading">Loading trips...</div>
+<div class="tiers-section">
+  <div class="tiers-intro">
+    <h2>Choose Your Journey</h2>
+    <p>From initial destination exploration to fully hosted luxury experiences, we have the perfect package for your travel dreams.</p>
+  </div>
+
+  <div class="tiers-grid">
+    <!-- Tier 1 -->
+    <div class="tier-card">
+      <div class="tier-header">
+        <div class="tier-level">Tier 1</div>
+        <h3>Destination Discovery</h3>
+      </div>
+      <div class="tier-body">
+        <p class="tier-description">Begin your journey with personalized consultation to explore dream destinations.</p>
+        <ul class="tier-highlights">
+          <li>Expert destination recommendations</li>
+          <li>Travel style assessment</li>
+          <li>Budget-conscious planning</li>
+          <li>Initial exploration consultation</li>
+        </ul>
+        <a href="tier-1-destination-discovery.html" class="tier-cta">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Tier 2 -->
+    <div class="tier-card">
+      <div class="tier-header">
+        <div class="tier-level">Tier 2</div>
+        <h3>Bespoke Itinerary</h3>
+      </div>
+      <div class="tier-body">
+        <p class="tier-description">Get a custom-designed itinerary tailored to your preferences and interests.</p>
+        <ul class="tier-highlights">
+          <li>Customized itinerary design</li>
+          <li>Accommodation curation</li>
+          <li>Activity recommendations</li>
+          <li>Ongoing planning support</li>
+        </ul>
+        <a href="tier-2-bespoke-itinerary.html" class="tier-cta">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="tier-card">
+      <div class="tier-header">
+        <div class="tier-level">Tier 3</div>
+        <h3>Journey Embarkment</h3>
+      </div>
+      <div class="tier-body">
+        <p class="tier-description">Full-service travel execution with on-ground support and coordination.</p>
+        <ul class="tier-highlights">
+          <li>Complete trip coordination</li>
+          <li>24/7 travel support</li>
+          <li>Premium accommodations</li>
+          <li>Concierge services</li>
+        </ul>
+        <a href="tier-3-journey-embarkment.html" class="tier-cta">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Tier 4 -->
+    <div class="tier-card">
+      <div class="tier-header">
+        <div class="tier-level">Tier 4</div>
+        <h3>Exclusive Hosted</h3>
+      </div>
+      <div class="tier-body">
+        <p class="tier-description">Ultimate luxury experience with our team hosting your curated group journey.</p>
+        <ul class="tier-highlights">
+          <li>Expert host accompaniment</li>
+          <li>Curated group experiences</li>
+          <li>Luxury accommodations</li>
+          <li>Unforgettable memories</li>
+        </ul>
+        <a href="tier-4-exclusive-hosted.html" class="tier-cta">Learn More</a>
+      </div>
+    </div>
   </div>
 </div>
 
 <footer>
   <p>© 2026 Reserve Journeys. All rights reserved.</p>
 </footer>
-
-<script>
-  const API = 'https://golf-wine-website-production.up.railway.app';
-
-  async function loadTrips() {
-    try {
-      const res = await fetch(`${API}/api/trips`);
-      const trips = await res.json();
-      const grid = document.getElementById('tripsGrid');
-      grid.innerHTML = '';
-
-      trips.forEach(trip => {
-        grid.innerHTML += `
-          <div class="trip-card" onclick="window.location.href='trip.html?id=${trip.id}'">
-            <img src="${trip.imageUrl}" alt="${trip.name}" onerror="this.src='https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800'">
-            <div class="trip-card-body">
-              <h4>${trip.name}</h4>
-              <div class="trip-meta">
-                <span>📍 ${trip.destination}</span>
-                <span>🗓 ${trip.durationDays} days</span>
-                <span>👥 Max ${trip.maxCapacity}</span>
-              </div>
-              <p>${trip.description}</p>
-              <div class="price">$${trip.price.toLocaleString()} per person</div>
-              <a class="btn" href="trip.html?id=${trip.id}">View Itinerary</a>
-            </div>
-          </div>
-        `;
-      });
-    } catch (err) {
-      document.getElementById('tripsGrid').innerHTML =
-        '<div class="loading">Could not load trips. Make sure the backend is running.</div>';
-    }
-  }
-
-  loadTrips();
-</script>
 
 </body>
 </html>
