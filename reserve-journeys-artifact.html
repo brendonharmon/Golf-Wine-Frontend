@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserve Journeys — Logo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e8e2d8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 60px;
+    padding: 60px 40px;
+  }
+
+  .label {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #8a7a6a;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .variant-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: rise 0.8s ease forwards;
+  }
+  .variant-wrap:nth-child(1) { animation-delay: 0.05s; }
+  .variant-wrap:nth-child(2) { animation-delay: 0.18s; }
+  .variant-wrap:nth-child(3) { animation-delay: 0.31s; }
+  .variant-wrap:nth-child(4) { animation-delay: 0.44s; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 0.16em;
+    color: #1e3020;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .logo-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.28em;
+    color: #6e1e2e;
+    margin-top: 5px;
+    text-transform: uppercase;
+  }
+  .logo-rule {
+    width: 190px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #6e1e2e 40%, #6e1e2e 60%, transparent);
+    margin: 13px 0;
+    opacity: 0.5;
+  }
+  .logo-tagline {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 8.5px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #8a7a6a;
+  }
+
+  .logo-primary {
+    background: #f4efe6;
+    padding: 62px 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #cfc5b0;
+  }
+  .logo-mark { margin-bottom: 24px; }
+
+  .logo-dark {
+    background: #141e14;
+    padding: 62px 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #243024;
+  }
+  .logo-dark .logo-name    { color: #e8e2d8; }
+  .logo-dark .logo-sub     { color: #c45a70; }
+  .logo-dark .logo-rule    { background: linear-gradient(90deg, transparent, #c45a70 40%, #c45a70 60%, transparent); opacity: 0.6; }
+  .logo-dark .logo-tagline { color: #7a9a70; }
+
+  .logo-icon {
+    background: #1e3020;
+    width: 112px;
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #243024;
+  }
+
+  .logo-horizontal {
+    background: #f4efe6;
+    padding: 34px 58px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid #cfc5b0;
+  }
+  .logo-horizontal .logo-name { font-size: 30px; }
+  .logo-horizontal .logo-sub  { font-size: 16px; margin-top: 3px; }
+  .logo-horizontal .logo-rule { width: 140px; margin: 8px 0; }
+  .logo-horizontal .logo-tagline { font-size: 8px; }
+</style>
+</head>
+<body>
+
+<!-- PRIMARY -->
+<div class="variant-wrap">
+  <p class="label">Primary Logo</p>
+  <div class="logo-primary">
+    <svg class="logo-mark" width="108" height="108" viewBox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="54" cy="54" r="50" stroke="#6e1e2e" stroke-width="0.9"/>
+      <circle cx="54" cy="54" r="45" stroke="#6e1e2e" stroke-width="0.35"/>
+      <path d="M 10 82 Q 34 76 54 78" stroke="#2e5030" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M 12 73 Q 34 68 54 70" stroke="#2e5030" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <path d="M 14 65 Q 34 61 54 63" stroke="#2e5030" stroke-width="1.0" fill="none" stroke-linecap="round"/>
+      <path d="M 17 57 Q 34 54 54 56" stroke="#2e5030" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+      <path d="M 20 50 Q 34 48 54 50" stroke="#2e5030" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <path d="M 24 44 Q 34 42 54 44" stroke="#2e5030" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+      <line x1="22" y1="82" x2="22" y2="44" stroke="#2e5030" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <line x1="32" y1="80" x2="32" y2="43" stroke="#2e5030" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <line x1="42" y1="79" x2="42" y2="43" stroke="#2e5030" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <ellipse cx="22" cy="44" rx="3.5" ry="2" transform="rotate(-15 22 44)" fill="none" stroke="#2e5030" stroke-width="0.8"/>
+      <ellipse cx="32" cy="43" rx="3.5" ry="2" transform="rotate(-10 32 43)" fill="none" stroke="#2e5030" stroke-width="0.8"/>
+      <ellipse cx="42" cy="43" rx="3.5" ry="2" transform="rotate(-5 42 43)"  fill="none" stroke="#2e5030" stroke-width="0.8"/>
+      <line x1="72" y1="18" x2="72" y2="56" stroke="#1e3020" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M 72 18 L 86 24 L 72 31" fill="none" stroke="#6e1e2e" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M 54 50 Q 62 38 72 46 Q 82 54 96 48" stroke="#2e5030" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="54" y1="4"   x2="54" y2="10"  stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <line x1="54" y1="98"  x2="54" y2="104" stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <line x1="4"  y1="54"  x2="10" y2="54"  stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <line x1="98" y1="54"  x2="104" y2="54" stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="54" cy="54" r="2" fill="#6e1e2e"/>
+    </svg>
+    <div class="logo-name">Reserve</div>
+    <div class="logo-sub">Journeys</div>
+    <div class="logo-rule"></div>
+    <div class="logo-tagline">Curated Travel Experiences</div>
+  </div>
+</div>
+
+<!-- DARK -->
+<div class="variant-wrap">
+  <p class="label">Dark Variant</p>
+  <div class="logo-dark">
+    <svg class="logo-mark" width="108" height="108" viewBox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="54" cy="54" r="50" stroke="#c45a70" stroke-width="0.9"/>
+      <circle cx="54" cy="54" r="45" stroke="#c45a70" stroke-width="0.35"/>
+      <path d="M 10 82 Q 34 76 54 78" stroke="#5a9060" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M 12 73 Q 34 68 54 70" stroke="#5a9060" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <path d="M 14 65 Q 34 61 54 63" stroke="#5a9060" stroke-width="1.0" fill="none" stroke-linecap="round"/>
+      <path d="M 17 57 Q 34 54 54 56" stroke="#5a9060" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+      <path d="M 20 50 Q 34 48 54 50" stroke="#5a9060" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <path d="M 24 44 Q 34 42 54 44" stroke="#5a9060" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+      <line x1="22" y1="82" x2="22" y2="44" stroke="#5a9060" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <line x1="32" y1="80" x2="32" y2="43" stroke="#5a9060" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <line x1="42" y1="79" x2="42" y2="43" stroke="#5a9060" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <ellipse cx="22" cy="44" rx="3.5" ry="2" transform="rotate(-15 22 44)" fill="none" stroke="#5a9060" stroke-width="0.8"/>
+      <ellipse cx="32" cy="43" rx="3.5" ry="2" transform="rotate(-10 32 43)" fill="none" stroke="#5a9060" stroke-width="0.8"/>
+      <ellipse cx="42" cy="43" rx="3.5" ry="2" transform="rotate(-5 42 43)"  fill="none" stroke="#5a9060" stroke-width="0.8"/>
+      <line x1="72" y1="18" x2="72" y2="56" stroke="#e8e2d8" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M 72 18 L 86 24 L 72 31" fill="none" stroke="#c45a70" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M 54 50 Q 62 38 72 46 Q 82 54 96 48" stroke="#5a9060" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="54" y1="4"   x2="54" y2="10"  stroke="#c45a70" stroke-width="1" stroke-linecap="round"/>
+      <line x1="54" y1="98"  x2="54" y2="104" stroke="#c45a70" stroke-width="1" stroke-linecap="round"/>
+      <line x1="4"  y1="54"  x2="10" y2="54"  stroke="#c45a70" stroke-width="1" stroke-linecap="round"/>
+      <line x1="98" y1="54"  x2="104" y2="54" stroke="#c45a70" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="54" cy="54" r="2" fill="#c45a70"/>
+    </svg>
+    <div class="logo-name">Reserve</div>
+    <div class="logo-sub">Journeys</div>
+    <div class="logo-rule"></div>
+    <div class="logo-tagline">Curated Travel Experiences</div>
+  </div>
+</div>
+
+<!-- ICON ONLY -->
+<div class="variant-wrap">
+  <p class="label">Icon Mark</p>
+  <div class="logo-icon">
+    <svg width="76" height="76" viewBox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="54" cy="54" r="50" stroke="#c45a70" stroke-width="1"/>
+      <circle cx="54" cy="54" r="45" stroke="#c45a70" stroke-width="0.4"/>
+      <path d="M 10 82 Q 34 76 54 78" stroke="#5a9060" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M 12 73 Q 34 68 54 70" stroke="#5a9060" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <path d="M 14 65 Q 34 61 54 63" stroke="#5a9060" stroke-width="1.0" fill="none" stroke-linecap="round"/>
+      <path d="M 17 57 Q 34 54 54 56" stroke="#5a9060" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+      <path d="M 20 50 Q 34 48 54 50" stroke="#5a9060" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <path d="M 24 44 Q 34 42 54 44" stroke="#5a9060" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+      <line x1="22" y1="82" x2="22" y2="44" stroke="#5a9060" stroke-width="0.7" stroke-dasharray="1.5 3"/>
+      <line x1="32" y1="80" x2="32" y2="43" stroke="#5a9060" stroke-width="0.7" stroke-dasharray="1.5 3"/>
+      <line x1="42" y1="79" x2="42" y2="43" stroke="#5a9060" stroke-width="0.7" stroke-dasharray="1.5 3"/>
+      <ellipse cx="22" cy="44" rx="3.5" ry="2" transform="rotate(-15 22 44)" fill="none" stroke="#5a9060" stroke-width="0.9"/>
+      <ellipse cx="32" cy="43" rx="3.5" ry="2" transform="rotate(-10 32 43)" fill="none" stroke="#5a9060" stroke-width="0.9"/>
+      <ellipse cx="42" cy="43" rx="3.5" ry="2" transform="rotate(-5 42 43)"  fill="none" stroke="#5a9060" stroke-width="0.9"/>
+      <line x1="72" y1="18" x2="72" y2="56" stroke="#e8e2d8" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M 72 18 L 86 24 L 72 31" fill="none" stroke="#c45a70" stroke-width="1.3" stroke-linejoin="round"/>
+      <path d="M 54 50 Q 62 38 72 46 Q 82 54 96 48" stroke="#5a9060" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="54" y1="4"   x2="54" y2="10"  stroke="#c45a70" stroke-width="1.1" stroke-linecap="round"/>
+      <line x1="54" y1="98"  x2="54" y2="104" stroke="#c45a70" stroke-width="1.1" stroke-linecap="round"/>
+      <line x1="4"  y1="54"  x2="10" y2="54"  stroke="#c45a70" stroke-width="1.1" stroke-linecap="round"/>
+      <line x1="98" y1="54"  x2="104" y2="54" stroke="#c45a70" stroke-width="1.1" stroke-linecap="round"/>
+      <circle cx="54" cy="54" r="2" fill="#c45a70"/>
+    </svg>
+  </div>
+</div>
+
+<!-- HORIZONTAL -->
+<div class="variant-wrap">
+  <p class="label">Horizontal Lockup</p>
+  <div class="logo-horizontal">
+    <svg width="68" height="68" viewBox="0 0 108 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="54" cy="54" r="50" stroke="#6e1e2e" stroke-width="0.9"/>
+      <circle cx="54" cy="54" r="45" stroke="#6e1e2e" stroke-width="0.35"/>
+      <path d="M 10 82 Q 34 76 54 78" stroke="#2e5030" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M 12 73 Q 34 68 54 70" stroke="#2e5030" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <path d="M 14 65 Q 34 61 54 63" stroke="#2e5030" stroke-width="1.0" fill="none" stroke-linecap="round"/>
+      <path d="M 17 57 Q 34 54 54 56" stroke="#2e5030" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+      <path d="M 20 50 Q 34 48 54 50" stroke="#2e5030" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <path d="M 24 44 Q 34 42 54 44" stroke="#2e5030" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+      <line x1="22" y1="82" x2="22" y2="44" stroke="#2e5030" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <line x1="32" y1="80" x2="32" y2="43" stroke="#2e5030" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <line x1="42" y1="79" x2="42" y2="43" stroke="#2e5030" stroke-width="0.6" stroke-dasharray="1.5 3"/>
+      <ellipse cx="22" cy="44" rx="3.5" ry="2" transform="rotate(-15 22 44)" fill="none" stroke="#2e5030" stroke-width="0.8"/>
+      <ellipse cx="32" cy="43" rx="3.5" ry="2" transform="rotate(-10 32 43)" fill="none" stroke="#2e5030" stroke-width="0.8"/>
+      <ellipse cx="42" cy="43" rx="3.5" ry="2" transform="rotate(-5 42 43)"  fill="none" stroke="#2e5030" stroke-width="0.8"/>
+      <line x1="72" y1="18" x2="72" y2="56" stroke="#1e3020" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M 72 18 L 86 24 L 72 31" fill="none" stroke="#6e1e2e" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M 54 50 Q 62 38 72 46 Q 82 54 96 48" stroke="#2e5030" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="54" y1="4"   x2="54" y2="10"  stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <line x1="54" y1="98"  x2="54" y2="104" stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <line x1="4"  y1="54"  x2="10" y2="54"  stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <line x1="98" y1="54"  x2="104" y2="54" stroke="#6e1e2e" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="54" cy="54" r="2" fill="#6e1e2e"/>
+    </svg>
+    <div>
+      <div class="logo-name">Reserve</div>
+      <div class="logo-sub">Journeys</div>
+      <div class="logo-rule"></div>
+      <div class="logo-tagline">Curated Travel Experiences</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
