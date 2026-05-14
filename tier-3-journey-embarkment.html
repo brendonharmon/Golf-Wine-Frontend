@@ -111,7 +111,7 @@
 
     .highlights {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       margin: 30px 0;
     }
@@ -121,6 +121,7 @@
       padding: 24px;
       border-radius: 12px;
       box-shadow: 0 8px 20px var(--shadow);
+      border: 1px solid rgba(30, 48, 32, 0.08);
     }
 
     .highlight-card h3 {
@@ -142,6 +143,8 @@
       text-align: center;
       box-shadow: 0 18px 40px var(--shadow);
       margin-bottom: 40px;
+      border: 1px solid rgba(30, 48, 32, 0.08);
+    }
     }
 
     .cta-section h2 {
@@ -199,6 +202,7 @@
       max-width: 500px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       animation: slideIn 0.3s;
+      border: 1px solid rgba(30, 48, 32, 0.08);
     }
 
     @keyframes slideIn {
@@ -279,6 +283,32 @@
       padding: 28px 20px;
       margin-top: 40px;
       font-size: 0.95rem;
+    }
+
+    @media (max-width: 1024px) {
+      .highlights {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+
+      .section-title { font-size: 1.6rem; }
+
+      .cta-section {
+        padding: 30px 20px;
+      }
+
+      .modal-content {
+        width: 95%;
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
